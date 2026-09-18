@@ -1,0 +1,5 @@
+site_name: 'aurora-mcp-gateway'
+nav:
+  - Introduction: index.md
+plugins:
+  - techdocs-core

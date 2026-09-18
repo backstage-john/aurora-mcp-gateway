@@ -1,0 +1,21 @@
+{
+  "name": "aurora-mcp-gateway",
+  "version": "0.1.0",
+  "tools": [
+    {
+      "name": "get_shipment_status",
+      "description": "Look up the current status of a shipment by id.",
+      "wraps": "aurora-shipments-api: GET /shipments/{id}"
+    },
+    {
+      "name": "get_tracking_history",
+      "description": "Fetch recent location history for a shipment.",
+      "wraps": "aurora-tracking-service: GetTrackingHistory"
+    },
+    {
+      "name": "list_warehouse_inventory",
+      "description": "List current inventory levels for a warehouse.",
+      "wraps": "warehouse-postgres: inventory table"
+    }
+  ]
+}

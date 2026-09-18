@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: mcp-gateway
+  description: MCP server exposing governed tool access to internal systems for AI agents.
+  annotations:
+    github.com/project-slug: backstage-john/aurora-mcp-gateway
+    backstage.io/techdocs-ref: dir:.
+  tags:
+    - mcp
+    - typescript
+spec:
+  type: mcp-server
+  lifecycle: production
+  owner: group:default/team-platform
+  system: system:default/platform-engineering
+  providesApis:
+    - mcp-gateway
+  consumesApis:
+    - shipments-api
+    - tracking-api
+  dependsOn:
+    - resource:default/warehouse-postgres
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: mcp-gateway
+  description: MCP tool/resource manifest exposed to routing-agent and support-agent.
+spec:
+  type: mcp
+  lifecycle: production
+  owner: group:default/team-platform
+  system: system:default/platform-engineering
+  definition:
+    $text: ./mcp-manifest.json
