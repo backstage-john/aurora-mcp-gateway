@@ -27,6 +27,8 @@ kind: API
 metadata:
   name: mcp-gateway
   description: MCP tool/resource manifest exposed to routing-agent and support-agent.
+  annotations:
+    backstage.io/techdocs-ref: dir:.
 spec:
   type: mcp
   lifecycle: production
